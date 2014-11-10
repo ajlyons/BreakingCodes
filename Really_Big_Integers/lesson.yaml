@@ -1,0 +1,98 @@
+- Class: meta
+  Course: BreakingCodes
+  Lesson: Really Big Integers
+  Author: Andy Lyons
+  Type: Standard
+  Organization: Stanford University
+  Version: 2.2.18
+
+- Class: text
+  Output: "In this lesson, we're going to look at how to work with really big numbers in R. Press enter to continue." 
+
+- Class: text
+  Output: If you haven't used Swirl before, take note that when you see the three dots ... press enter to continue. When you're asked to enter a response, you can usually type info() to get a menu of options (including commands to pause or quit the exercise).
+
+- Class: cmd_question
+  Output: "RSA is all about large integers. Really, really large integers. Let's see how big an integer R can handle. Define the following twenty-digit integer: x = 12345678901234567890"
+  CorrectAnswer: x = 12345678901234567890
+  AnswerTests: omnitest(correctExpr='x = 12345678901234567890')
+  Hint: "Type: x = 12345678901234567890"
+
+- Class: cmd_question
+  Output: "Now lets double-check that R got the number correctly by displaying its value. Type: x"
+  CorrectAnswer: x
+  AnswerTests: omnitest(correctExpr='x')
+  Hint: To see the current value of variable, just type the name of the variable (i.e., x) at the console.
+
+- Class: cmd_question
+  Output: "Did it work? It's hard to tell if R truncated the number when it displays the value using scientific notation. Let's tell R to display more digits. Type: options(digits=22)"
+  CorrectAnswer: options(digits=22)
+  AnswerTests: omnitest(correctExpr='options(digits=22)')
+  Hint: "This is not that hard. Type `options(digits=22)`"
+
+- Class: cmd_question
+  Output: Now display the value of x again.
+  CorrectAnswer: x
+  AnswerTests: omnitest(correctExpr='x')
+  Hint: To see the current value of variable, just type the name of the variable (i.e., x) at the console.
+
+- Class: text
+  Output: "Oh dear. What happened to the final few digits?"
+
+- Class: text
+  Output: "It seems R has an upper limit on the size of integers it can handle. That's not too surprising, because there's a significant memory cost to saving large numbers and you don't really need them very often. But it's a little disconcerting that R didn't bother to tell us that it was changing the number we entered :-0 "
+
+- Class: text
+  Output: "Fortunately there is an awesome package called 'gmp' that is designed specifically for operations involving really large numbers. It also has some nifty functions for working with prime numbers."
+
+- Class: cmd_question
+  Output: "If you don't have the gmp package already installed, install it now. Then load it into memory: library(gmp)"
+  CorrectAnswer: library(gmp)
+  AnswerTests: omnitest(correctExpr='library(gmp)')
+  Hint: You can install a package from the 'Packages' tab (RStudio) or the 'Packages' menu (RGui). Then load it into memory by typing `library(gmp)`.
+
+- Class: cmd_question
+  Output: "When you use a package for the first time, it's useful to read about what it does. Open the help file for the gmp package and check out some of the functions. Type: help(package=\"gmp\")"
+  CorrectAnswer: help(package="gmp")
+  AnswerTests: omnitest(correctExpr='help(package="gmp")')
+  Hint: "To see the help page for the gmp package, type: help(package=\"gmp\")."
+
+- Class: cmd_question
+  Output: "The gmp package has a data type called 'bigz' for really large integers. Let's try to create a bigz number using the as.bigz() function. Type: x = as.bigz(12345678901234567890)"
+  CorrectAnswer: x = as.bigz(12345678901234567890)
+  AnswerTests: omnitest(correctExpr='x = as.bigz(12345678901234567890)')
+  Hint: "The function that takes a regular number and turns it a bigz number is as.bigz(). Type: x = as.bigz(12345678901234567890)"
+
+- Class: cmd_question
+  Output: View x to see if it worked.
+  CorrectAnswer: x
+  AnswerTests: omnitest(correctExpr='x')
+  Hint: To see the current value of variable, just type the name of the variable (i.e., x) at the console.
+
+- Class: text
+  Output: "OMG, it still truncated the results! What happened?"
+
+- Class: text
+  Output: "Press enter if you want to find out."
+
+- Class: text
+  Output: "What happened was that we typed our 20-digit integer as the argument to the as.bigz() function, and because we typed it as a plain number R truncated it before it even got to the as.bigz() function. This is an example of RRRRRrgh!"
+
+- Class: text
+  Output: "So we seem to have a catch-22. We need to save our big integer as a bigz number so we can do mathematical operations with it, but R will truncate the number unless its already a bigz. How can we get around this condunrum?"
+
+- Class: cmd_question
+  Output: "To get around this problem, you have to enter bigz integers not as numbers, but as text. Add quotations around the number this time: x = as.bigz(\"12345678901234567890\")"
+  CorrectAnswer: x = as.bigz("12345678901234567890")
+  AnswerTests: omnitest(correctExpr='x = as.bigz("12345678901234567890")')
+  Hint: "Type: x = as.bigz(\"12345678901234567890\")"
+
+- Class: cmd_question
+  Output: View x to see if it worked.
+  CorrectAnswer: x
+  AnswerTests: omnitest(correctExpr='x')
+  Hint: To see the current value of variable, just type the name of the variable (i.e., x) at the console.
+
+- Class: text
+  Output: "The moral of the story: when you're working with a large numbers, 1) enter them as text (i.e., in quotes) 2) convert them to bigz, and 3) always double-check to make sure that R didn't truncate them."
+
