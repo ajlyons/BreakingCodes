@@ -54,8 +54,11 @@
   AnswerTests: omnitest(correctExpr='help(package="gmp")')
   Hint: "To see the help page for the gmp package, type: help(package=\"gmp\")."
 
+- Class: text
+  Output: "You'll notice that many of the functions in this package have the word 'bigz' in their name. bigz is a data type for really large integers. Most of the functions in this package accept bigz numbers as input and return bigz numbers as output."
+
 - Class: figure
-  Output: The gmp package has a data type called 'bigz' for really large integers. This data type should not be confused with BigZ, the endearing character from 2007 motion picture 'Surfs Up'. 
+  Output: bigz the data type should not be confused with BigZ, the endearing wise surfer character voiced by Jeff Bridges in the 2007 motion picture 'Surfs Up'.
   Figure: bigz_plot01.R
 
 - Class: cmd_question
