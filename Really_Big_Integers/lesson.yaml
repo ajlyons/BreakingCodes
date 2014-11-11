@@ -9,7 +9,7 @@
 - Class: text
   Output: "In this lesson, we're going to look at how to work with really big numbers in R." 
 
-- Class: cmd_question
+- Class: cmd_question 
   Output: "RSA is all about large integers. Really, really large integers. Let's see how big an integer R can handle. Define the following twenty-digit integer: x = 12345678901234567890"
   CorrectAnswer: x = 12345678901234567890
   AnswerTests: omnitest(correctExpr='x = 12345678901234567890')
