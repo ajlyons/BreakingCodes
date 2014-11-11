@@ -54,8 +54,12 @@
   AnswerTests: omnitest(correctExpr='help(package="gmp")')
   Hint: "To see the help page for the gmp package, type: help(package=\"gmp\")."
 
+- Class: figure
+  Output: The gmp package has a data type called 'bigz' for really large integers. This data type should not be confused with BigZ, the endearing character from 2007 motion picture 'Surfs Up'. 
+  Figure: bigz_plot01.R
+
 - Class: cmd_question
-  Output: "The gmp package has a data type called 'bigz' for really large integers. Let's try to create a bigz number using the as.bigz() function. Type: x = as.bigz(12345678901234567890)"
+  Output: "Let's try to create a bigz number using the as.bigz() function. Type: x = as.bigz(12345678901234567890)"
   CorrectAnswer: x = as.bigz(12345678901234567890)
   AnswerTests: omnitest(correctExpr='x = as.bigz(12345678901234567890)')
   Hint: "The function that takes a regular number and turns it a bigz number is as.bigz(). Type: x = as.bigz(12345678901234567890)"
@@ -90,6 +94,6 @@
   AnswerTests: omnitest(correctExpr='x')
   Hint: To see the current value of variable, just type the name of the variable (i.e., x) at the console.
 
-- Class: text
-  Output: "The moral of the story: when you're working with a large numbers, 1) enter them as text (i.e., in quotes) 2) convert them to bigz, and 3) always double-check to make sure that R didn't truncate them."
-
+- Class: figure
+  Output:  "The moral of the story: when you're working with a large numbers, 1) enter them as text (i.e., in quotes) 2) convert them to bigz, and 3) always double-check to make sure that R didn't truncate them."
+  Figure: bigz_plot02.R
